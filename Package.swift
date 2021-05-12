@@ -1,11 +1,12 @@
 // swift-tools-version:5.4.0
+
 import PackageDescription
 
 let package = Package(
     name: "SwiftyVK",
     defaultLocalization: "ru",
     platforms: [
-        .iOS(.v8), .macOS(.v10_10)
+        .iOS(.v9), .macOS(.v10_10)
     ],
     products: [
         .library(
