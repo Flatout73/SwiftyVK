@@ -1,18 +1,20 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.4.0
 import PackageDescription
 
 let package = Package(
     name: "SwiftyVK",
+    defaultLocalization: "ru",
+    platforms: [
+        .iOS(.v8), .macOS(.v10_10)
+    ],
     products: [
         .library(
             name: "SwiftyVK",
-            targets: ["SwiftyVK_macOS", "SwiftyVK_iOS"]
+            targets: ["SwiftyVK"]
         )
     ],
     targets: [
-        .target(name: "SwiftyVK_macOS", dependencies: ["SwiftyVK_resources_macOS"]),
-        .target(name: "SwiftyVK_iOS", dependencies: ["SwiftyVK_resources_iOS"]),
-        .testTarget(name: "SwiftyVK_tests_macOS", dependencies: ["SwiftyVK_macOS"]),
-        .testTarget(name: "SwiftyVK_tests_iOS", dependencies: ["SwiftyVK_iOS"]),
+        .target(name: "SwiftyVK", path: "Library/Sources"),
+        .testTarget(name: "SwiftyVK_tests", dependencies: ["SwiftyVK"], path: "Library/Tests")
     ]
 )
