@@ -6,7 +6,7 @@ let package = Package(
     name: "SwiftyVK",
     defaultLocalization: "ru",
     platforms: [
-        .iOS(.v9), .macOS(.v10_10)
+        .iOS(.v9)
     ],
     products: [
         .library(
@@ -15,7 +15,6 @@ let package = Package(
         )
     ],
     targets: [
-        .target(name: "SwiftyVK", path: "Library/Sources"),
-        .testTarget(name: "SwiftyVK_tests", dependencies: ["SwiftyVK"], path: "Library/Tests")
+        .target(name: "SwiftyVK", path: "Library/Sources", exclude: ["ShareImageCollectionViewItem_macOS", "Storyboard_macOS.storyboard"])
     ]
 )
